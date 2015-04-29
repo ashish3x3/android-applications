@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.firstactivity"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="15"
+        android:targetSdkVersion="21" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+       
+        <activity
+            android:name=".LearnTopics"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name=".FirstActivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".TakeQuiz"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name=".SecondActivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".List"
+            android:label="@string/title_activity_list" >
+        </activity>
+        <activity
+            android:name=".geoQuiz"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="..geoQuiz" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        
+         <activity
+            android:name=".Culture"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name=".Culture" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        
+         <activity
+            android:name=".Parliament"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name=".Parliament" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        
+         <activity
+            android:name=".Geography"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name=".Geography" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        
+         <activity
+            android:name=".Constitution"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name=".Constitution" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        
+         <activity
+            android:name=".Sports"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name=".Sports" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".SportsQuiz"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name=".SportsQuiz" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".ParliamentQuiz"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name=".ParliamentQuiz" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".ConstitutionQuiz"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name=".ConstitutionQuiz" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".GeographyQuiz"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name=".GeographyQuiz" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".CultureQuiz"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name=".CultureQuiz" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        
+        <activity
+            android:name=".Instructions"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name=".Instructions" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".LearnPronunciation"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name=".LearnPronunciation" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+         
+
+        
+    </application>
+
+</manifest>
