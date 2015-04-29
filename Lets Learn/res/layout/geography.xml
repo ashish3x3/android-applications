@@ -1,0 +1,68 @@
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent" 
+    android:background="@drawable/bkg">
+    
+    <LinearLayout 
+        android:layout_width="fill_parent"
+    	android:layout_height="fill_parent"
+    	android:orientation="vertical"
+        android:paddingBottom="40px"
+        android:paddingTop="40px"
+        >
+
+        <TextView
+            android:id="@+id/tvStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:paddingLeft="20px"
+            android:text="@string/culture_title"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <TextView
+        android:id="@+id/tvChange"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="20px"
+        android:paddingRight="10px"
+        android:text="@string/culture_value"
+        />
+            
+            <ImageView
+       android:layout_width="250dp"
+    android:layout_height="70dp"
+    android:layout_centerHorizontal="true"
+        android:contentDescription="@string/culture_alt"
+        android:src="@drawable/geo" />
+            
+            <ImageView
+       android:layout_width="250dp"
+    android:layout_height="70dp"
+    android:layout_centerHorizontal="true"
+        android:contentDescription="@string/culture_alt"
+        android:src="@drawable/geo1" />
+            
+            <ImageView
+        android:layout_width="250dp"
+    android:layout_height="70dp"
+    android:layout_centerHorizontal="true"
+        android:contentDescription="@string/culture_alt"
+        android:src="@drawable/geo2" />
+
+            <TextView
+            android:id="@+id/tvGravity"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+             android:paddingLeft="20px"
+            android:text="@string/culture_value"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+    
+    
+    
+    </LinearLayout>
+    
+</ScrollView>

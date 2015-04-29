@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">FirstActivity</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_list">List</string>
+
+     <string name="culture_title">Culture Section</string>
+     <string name="culture_value">The Indian culture, often labeled as an amalgamation of several cultures, spans across the Indian subcontinent and has been influenced by a history that is several millennia old.</string>
+
+     <string name="culture_alt">Culture Section Snap</string>
+
+     <string name="geography_title">Geography Facts about India</string>
+     <string name="geography_value">Locational Advantage:- India is a unique country as it is easily accessible to other parts of Asia, Africa, Europe and Americas. Its cultural influences have crossed its border from time immemorial and reached far off lands. It acts as a bridge head between developed and developing countries of the world and between the East and the West. India\'s strength lies in its geography as much as in its culture. Since the opening of the Suez Canal in 1869, distance between India and Europe has been reduced by 7000 kms. India enjoys a favourable ocean routes from East and South-East Asia and Australia to Africa and Europe pass through Indian Ocean. India is connected with the Cape of Good Hope and the Suez Canal. India can also reach Canada and the USA through the Strait of Malacca after crossing the Pacific Ocean. </string>
+
+     <string name="geography_alt">Geography Section Snap</string>
+
+     <string name="parlia_title">Parliament of India </string>
+     <string name="parlia_value">The Indian Parliament (Bharatiya Sansad)) is the supreme legislative body in India. Parliament is composed of: The President of India. Lok Sabha (House of the People) </string>
+
+     <string name="parlia_alt">Geography Section Snap</string>
+
+     <string name="constitution_alt">Geography Section Snap</string>
+
+     <string name="constitution_title">Indian Independence Act 1947:</string>
+     <string name="constitutione_value">India, also known as Bharat, is a Union of States. It is a Sovereign Socialist Secular Democratic Republic with a parliamentary system of government. The Republic is governed in terms of the Constitution of India which was adopted by the Constituent Assembly on 26th November, 1949 and came into force on 26th January, 1950. The Constitution provides for a Parliamentary form of government which is federal in structure with certain unitary features. The constitutional head of the Executive of the Union is the President. As per Article 79 of the Constitution of India, the council of the Parliament of the Union consists of the President and two Houses known as the Council of States (Rajya Sabha) and the House of the People (Lok Sabha). Article 74(1) of the Constitution provides that there shall be a Council of Ministers with the Prime Minister as its head to aid and advise the President, who shall exercise his/her functions in accordance to the advice. The real executive power is thus vested in the Council of Ministers with the Prime Minister as its head. </string>
+
+     
+     <string name="sports_title">Indian Sports</string>
+     <string name="sports_value">India is home to a diverse population playing many different sports across the country. Cricket is the most popular sport. The country has won eight Olympic gold medals in field hockey. Several games originated in India including Chess, Snooker and other regional games. India has hosted and co-hosted several international sporting events, including the 1951 and 1982 Asian Games, the 1987, 1996 and 2011 Cricket World Cup, the 2003 Afro-Asian Games, the 2010 Hockey World Cup and the 2010 Commonwealth Games. The Indian Premier League (IPL) is a premier twenty20 cricket league held every year since 2008. Major international sporting events annually held in India include the Chennai Open in tennis, the Indian Masters in golf. From 2011 to 2013, India hosted the Indian Grand Prix Formula 1 race at the Buddh International Circuit, Greater Noida. The National Games of India is a national domestic sports event, which has been held in the country since 1924.</string>
+
+     <string name="sports_alt">sports Section Snap</string>
+
+</resources>

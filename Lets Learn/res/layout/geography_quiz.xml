@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:paddingBottom="60dp"
+   android:background="@drawable/bkg">
+
+   <TextView
+       android:id="@+id/q1"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_weight="0.53"
+       android:paddingLeft="10dp"
+       android:paddingTop="50dp"
+       android:text="Q: What is the name of the capital of India? whyis it named so.Do you really like Swimming or you like caricket."
+       android:textAppearance="?android:attr/textAppearanceLarge" />
+ 
+   
+      
+ 
+        <RadioGroup
+            android:id="@+id/rg1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            >
+             
+ 
+            <RadioButton
+                android:id="@+id/a1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Chennai"
+                
+                />
+                 
+ 
+            <RadioButton
+                android:id="@+id/a2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mumbai"
+                 />
+        
+       
+ 
+            <RadioButton
+                android:id="@+id/a3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Kanpur" 
+                />
+
+            <RadioButton
+                android:id="@+id/a4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Delhi" />
+            
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/bans"
+            android:layout_width="308dp"
+            android:layout_height="wrap_content"
+            android:text="Check Answer"
+             />
+ 
+</LinearLayout>
