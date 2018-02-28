@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:paddingBottom="60dp"
+   android:background="@drawable/bkg">
+
+   <TextView
+       android:id="@+id/i1"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_weight="0.53"
+       android:paddingLeft="10dp"
+       
+       android:text="Aim of the App"
+       android:textAppearance="?android:attr/textAppearanceLarge" />
+   
+   <TextView
+       android:id="@+id/i2"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       
+       android:paddingLeft="10dp"
+       android:paddingTop="10dp"
+       android:text="This app is focused towards introducinf basic yet im[ortant aspects about indian tradation,culture,geography,etc through interactive learning and games."
+       />
+   
+   <TextView
+       android:id="@+id/i3"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_weight="0.53"
+       android:paddingLeft="10dp"
+       
+       android:text="Section of App"
+       android:textAppearance="?android:attr/textAppearanceLarge" />
+   
+   <TextView
+       android:id="@+id/i4"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_weight="0.53"
+       android:paddingLeft="10dp"
+      
+       android:text="There are basically for now we have only 2 parts one is learning and other is quiz section to test your knowledge."
+       />
+   
+   <TextView
+       android:id="@+id/i5"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_weight="0.53"
+       android:paddingLeft="10dp"
+      
+       android:text="Note"
+       android:textAppearance="?android:attr/textAppearanceLarge" />
+   
+   <TextView
+       android:id="@+id/i6"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_weight="0.53"
+       android:paddingLeft="10dp"
+       
+       android:text="Since it is a prototype we are focising on basic functionality and not production development "
+        />
+ 
+   
+      
+ 
+        
+
+        <Button
+            android:id="@+id/bans"
+            android:layout_width="308dp"
+            android:layout_height="wrap_content"
+            android:text="Start"
+             />
+ 
+</LinearLayout>
