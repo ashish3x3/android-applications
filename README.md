@@ -1,2 +1,7 @@
-# Android-Application
-This is for practice purpose. I will be putting all my Application which I have created during my learning process of Android App Development..
+# Android Application
+
+This repo contains some of the android applications created as a learning process.
+
+Details to be written soon
+
+![Alt text](/Images/Score-App.PNG?raw=true "Court Counter")
