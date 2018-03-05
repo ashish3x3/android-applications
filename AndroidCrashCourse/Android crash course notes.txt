@@ -1,0 +1,101 @@
+package com.example.android.loggingapp;
+
+Activities are written in Java, extending from the Activity class.
+
+An activity creates views to show the user information, and to let the user interact with the activity. Views are a class in the Android UI framework. They occupy a rectangular area on the screen and are responsible for drawing and handling events. An activity determines what views to create (and where to put them), by reading an XML layout file. These XML files, as Dan mentioned, are stored in the res folder inside the folder labeled layouts.
+
+
+Type of View
+--UI Components
+--The second are views called "Layout" or "Container" views.They extend from a class called ViewGroup.
+
+
+After you create your XML Layout you need to associate it with your activity.
+This is done in the onCreate method of the Activity using the method setContentView. You pass a reference to the layout file as R.layout.name_of_layout. For example, if your layout were named activity_main.xml this would look like:
+
+
+
+public class MainActivity extends AppCompatActivity {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+       super.onCreate(savedInstanceState);
+       setContentView(R.layout.activity_main);
+       // other code to setup the activity
+    }
+    // other code
+}
+
+
+
+The R Class
+When your application is compiled the R class is generated. It creates constants that allow you to dynamically identify the various contents of the res folder, including layouts.
+
+setContentView
+So what is the setContentView method doing? It inflates the layout. Essentially what happens is that Android reads your XML file and generates Java objects for each of the tags in your layout file. You can then edit these objects in the Java code by calling methods on the Java objects
+
+
+
+Names are in camelCase
+
+
+make touch targets atleast 48dp wide..
+dp is for android for density indenpendent resolution for responsive design in android
+
+<TextView
+    android:text="Happy Birthday Ashish!"
+    android:background="@android:color/darker_gray"
+    android:layout_width="170dp"
+    android:layout_height="175dp"
+    android:textSize = "36sp"
+    android:fontFamily="sans-serif-light"
+    android:textColor = "@android:color/white"
+    />
+
+@android:color/white
+
+centerCrop maintain aspect ratio
+<ImageView
+        android:id="@+id/happy_birthday_image_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/happy_birthday"
+        android:scaleType="centerCrop"
+
+
+views overlap..so ordering in the xml matters in stacking them one over the other
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

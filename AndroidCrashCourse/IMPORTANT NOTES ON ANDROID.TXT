@@ -1,0 +1,614 @@
+
+
+
+Activities are written in Java, extending from the Activity class.
+
+An activity creates views to show the user information, and to let the user interact with the activity. Views are a class in the Android UI framework. They occupy a rectangular area on the screen and are responsible for drawing and handling events. An activity determines what views to create (and where to put them), by reading an XML layout file. These XML files, as Dan mentioned, are stored in the res folder inside the folder labeled layouts.
+
+Type of View
+--UI Components
+--The second are views called "Layout" or "Container" views.They extend from a class called ViewGroup.
+
+
+Type of View : UI Components
+
+So what does this XML look like? Here's an example:
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+   xmlns:tools="http://schemas.android.com/tools"
+   android:layout_width="match_parent"
+   android:layout_height="match_parent"
+   android:orientation="vertical"
+   android:padding="16dp"
+   tools:context="com.example.android.exampleapp.MainActivity">
+
+   <EditText
+       android:id="@+id/edit_text_name_input"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:background="@color/colorAccent"
+       android:hint="Enter your name"
+       android:padding="4dp"
+       android:textSize="24sp" />
+
+   <TextView
+       android:id="@+id/text_view_name_display"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_gravity="center"
+       android:layout_marginTop="8dp"
+       android:text="Your name appears here"
+       android:textSize="30sp" />
+</LinearLayout>
+
+
+Class Name	Description
+TextView	Creates text on the screen; generally non interactive text.
+EditText	Creates a text input on the screen
+ImageView	Creates an image on the screen
+Button	Creates a button on the screen
+Chronometer	Create a simple timer on screen
+
+
+Type of View : Container View
+The second are views called "Layout" or "Container" views. They extend from a class called ViewGroup. They are primarily responsible for containing a group of views and determining where they are on screen. What do I mean by "containing a group of views?". I mean that a view will be nested inside the tag of another view, like below:
+
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+   xmlns:tools="http://schemas.android.com/tools"
+   android:layout_width="match_parent"
+   android:layout_height="match_parent"
+   android:orientation="vertical"
+   tools:context="com.example.android.exampleapp.MainActivity">
+   <TextView
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_gravity="center"
+       android:text="A"
+       android:textSize="30sp" />
+   <TextView
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_gravity="center"
+       android:text="B"
+       android:textSize="30sp" />
+   <TextView
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_gravity="center"
+       android:text="C"
+       android:textSize="30sp" />
+</LinearLayout>
+
+A few examples of common container views are:
+
+Class Name	Description
+LinearLayout	Displays views in a single column or row.
+RelativeLayout	Displays views positioned relative to each other and this view.
+FrameLayout	A ViewGroup meant to contain a single child view.
+ScrollView	A FrameLayout that is designed to let the user scroll through the content in the view.
+ConstraintLayout	This is a newer viewgroup; it positions views in a flexible way. We’ll be exploring constraint layout later in the lesson.
+Note that layout views can be nested in one another, so you can nest a LinearLayout inside of a LinearLayout if you so choose.
+
+
+XML Attributes
+Views have attributes in XML which control the properties of the view. Here’s an example from before:
+
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+   xmlns:tools="http://schemas.android.com/tools"
+   android:layout_width="match_parent"
+   android:layout_height="match_parent"
+   android:orientation="vertical"
+   android:padding="16dp"
+   tools:context="com.example.android.exampleapp.MainActivity">
+
+
+   <EditText
+       android:id="@+id/edit_text_name_input"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:background="@color/colorAccent"
+       android:hint="Enter your name"
+       android:padding="4dp"
+       android:textSize="24sp" />
+
+
+   <TextView
+       android:id="@+id/text_view_name_display"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_gravity="center"
+       android:layout_marginTop="8dp"
+       android:text="Your name appears here"
+       android:textSize="30sp" />
+</LinearLayout>
+The properties are things like textSize and padding. Every view has a handful of properties associated with them, which can be found on their documentation pages. These properties can be set to different values. Properties determine the specifics of how a view looks and interacts. Let's look at a few examples of properties you’ll be using shortly.
+
+Text
+The android:text attribute is an example of a very simple property that can be modified with the xml. In the code above, the portion that says
+
+android:text="Your name appears here"
+
+makes the TextView show the words:
+
+
+Width and Height
+Some of the most important properties are the width property and height property - those must be defined for every view. Remember that all views occupy a rectangular area on the screen - the width and height are the width and height of that area. You can define this in pixels, or better yet dp (stands for density-independent pixels, we’ll talk a lot more about this in later lessons):
+
+android:layout_width="200dp"
+android:layout_height="300dp"
+For the sake of having a layout be responsive and adjust to different devices, two common values are not numbers at all, but wrap_content and match_parent used as shown here:
+
+android:layout_width="wrap_content"
+android:layout_height="match_parent"
+wrap_content will shrink the view to wrap whatever is displayed inside the view. For example, if the view is filled with the text “Hello world” then wrap_content for the width will set the width of the view to be the exact width that the text “Hello world” takes up on the screen.
+
+match_parent will expand the size of the view to be as large as the parent view which it is nested inside of.
+
+Padding and Margin
+padding and layout_margin are two very similar attributes. Both determine the space around a View. The difference is that padding determines space within the boundaries of the view, and layout_margin determines the space outside the boundaries of the view. For a thorough example, check out this video about Padding and Margin
+
+How do the XML Layouts relate to the Java Activites?
+After you create your XML Layout you need to associate it with your activity. This is done in the onCreate method of the Activity using the method setContentView. You pass a reference to the layout file as R.layout.name_of_layout. For example, if your layout were named activity_main.xml this would look like:
+
+
+
+public class MainActivity extends AppCompatActivity {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+       super.onCreate(savedInstanceState);
+       setContentView(R.layout.activity_main);
+       // other code to setup the activity
+    }
+    // other code
+}
+At this point, you might have two questions, first, what is this R.layout business and second, what is setContentView actually doing?
+
+The R Class
+When your application is compiled the R class is generated. It creates constants that allow you to dynamically identify the various contents of the res folder, including layouts.
+
+setContentView
+So what is the setContentView method doing? It inflates the layout. Essentially what happens is that Android reads your XML file and generates Java objects for each of the tags in your layout file. You can then edit these objects in the Java code by calling methods on the Java objects.
+
+
+
+<TextView
+    android:text="Happy Birthday!"
+    android:background="@android:color/darker_gray"  // or direct hex code
+    android:background="#303F9F"
+    android:textColor ="#4DD0E1"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textSize = "22sp" //sp:scaled pixel changes work acc to user choice like medium,large,etc
+    android:textAllCaps = "true"
+
+/>
+
+<ImageView
+    android:src="@drawable/cake"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:scaleType="centerCrop"   # center,centerCrop
+/>
+
+View Group
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" #horizontal
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:text="Guest List"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"  />
+
+    <TextView
+        android:text="Kunal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"  />
+
+</LinearLayout>
+
+
+xmlns:android="http://schemas.android.com/apk/res/android" is the namespace which tells all these attrib belongs to android
+
+height and width of child view is actually controlled by the parent view and not themeselves, others are controled by enclsoing tag itself
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+
+Anything starting with layout_ prefix is controlled by parent view and not child view themselves..even thouh they were written inside child view..
+layout height and layout_weight helps to evenly distributr screen remaining space to child views.. we set height to 0dp ot for horizotnal widht to 0dp
+
+android:layout_height="0dp"
+android:layout_weight="7"  so 7/9 space will be given to this
+
+android:layout_height="0dp"
+android:layout_weight="1"  1/9 given to this
+
+android:layout_height="0dp"
+android:layout_weight="1" 1/9 to this
+
+android:layout_margin = "12dp"
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:src="@drawable/ocean"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:scaleType="centerCrop" />
+
+    <TextView
+        android:text="You're invited!"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:textColor="@android:color/white"
+        android:textSize="54sp"
+        android:background="#009688" />
+
+    <TextView
+        android:text="Bonfire at the beach"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:textColor="@android:color/white"
+        android:textSize="34sp"
+        android:background="#009688" />
+
+</LinearLayout>
+
+
+
+Relative layout
+
+Assigning Id names to views
+on ben text view
+	android:id = "@+id/ben_text_view"
+
+Position children relative to each other
+on Kunal textView:
+	android:layout_toLeftOff = ":@id/ben_text_view"
+
+androi:layout_alignParentRight = "true/false" #default false
+androi:layout_alignParentLeft
+androi:layout_alignParentTop
+androi:layout_alignParentBottom
+androi:layout_centerVerical
+androi:layout_centerHorizontal
+
+android:layout_above="@id/jennie_text_view"
+android:layout_below="@id/california_text_view"
+
+
+Assigning Id names to views
+on ben text view
+	android:id = "@+id/ben_text_view"
+
+Position children relative to each other
+on Kunal textView:
+	android:layout_toLeftOff = ":@id/ben_text_view"
+
+
+	<RelativeLayout
+	    xmlns:android="http://schemas.android.com/apk/res/android"
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent">
+
+	    <TextView
+	        android:id="@+id/lyla_text_view"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentBottom="true"
+	        android:layout_alignParentLeft="true"
+	        android:textSize="24sp"
+	        android:text="Lyla" />
+
+	    <TextView
+	        android:id="@+id/me_text_view"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentBottom="true"
+	        android:layout_toRightOf="@id/lyla_text_view"
+	        android:textSize="24sp"
+	        android:text="Me" />
+
+	    <TextView
+	        android:id="@+id/natalie_text_view"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentBottom="true"
+	        android:layout_above="@id/lyla_text_view"
+	        android:textSize="24sp"
+	        android:text="Natalie" />
+
+	    <TextView
+	        android:id="@+id/jennie_text_view"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentBottom="true"
+	        android:layout_alignParentRight="true"
+	        android:textSize="24sp"
+	        android:text="Jennie" />
+
+	    <TextView
+	        android:id="@+id/omoju_text_view"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentRight="true"
+	        android:layout_above="@id/jennie_text_view"
+	        android:textSize="24sp"
+	        android:text="Omoju" />
+
+	    <TextView
+	        android:id="@+id/amy_text_view"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentBottom="true"
+	        android:layout_alignParentRight="true"
+	        android:layout_above="@id/omoju_text_view"
+	        android:textSize="24sp"
+	        android:text="Amy" />
+
+	    <TextView
+	        android:id="@+id/ben_text_view"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentTop="true"
+	        android:layout_centerHorizontal="true"
+	        android:textSize="24sp"
+	        android:text="Ben" />
+
+	    <TextView
+	        android:id="@+id/kunal_text_view"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentTop="true"
+	        android:layout_toLeftOf="@id/ben_text_view"
+	        android:textSize="24sp"
+	        android:text="Kunal" />
+
+	    <TextView
+	        android:id="@+id/kagure_text_view"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentTop="true"
+	        android:layout_toRightOf="@id/ben_text_view"
+	        android:textSize="24sp"
+	        android:text="Kagure" />
+
+	</RelativeLayout>
+
+
+
+Padding and Margin
+android:padding="16dp"
+android:layout_margin = "12dp"
+
+android:layout_marginLeft = "12dp"
+
+margin is hendled by parent and padding by child view itself
+
+
+
+R class
+accessing resource R.drawable.someid, R.string.someId
+in xml @string/helloid
+
+
+Java to XML flow
+onCreate in jave loads mainxml activity which then read mainactivuty.xml and display on screen
+
+TextView t = new Textview(Context)... context helps U acces the application state and inputs and intents
+
+
+
+You’ve been using methods such as setText and setImageResource
+
+TextView orderSummaryTextView = (TextView) findViewById(R.id.order_summary_text_view);
+orderSummaryTextView.setText(message);
+
+public void eatCookie(View view) {
+   // Find a reference to the ImageView in the layout. Change the image.
+   ImageView imageView = (ImageView) findViewById(R.id.android_cookie_image_view);
+   imageView.setImageResource(R.drawable.after_cookie);
+
+   // Find a reference to the TextView in the layout. Change the text.
+   TextView textView = (TextView) findViewById(R.id.status_text_view);
+   textView.setText("I'm so full");
+}
+
+<Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:text="Eat cookie"
+        android:onClick="eatCookie" />
+
+
+
+Logs
+Another skill you will need for this exercise is the ability write to the Android Logs. More information can be found here, but essentially you write a Java statement like this in your code:
+
+Log.i("EnterpriseActivity.java", "Captain's Log, Stardate 43125.8. We have entered a spectacular binary star system in the Kavis Alpha sector on a most critical mission of astrophysical research.");
+Then you run the app and look at the Android Log section of your screen. You’ll see some output that looks like this:
+
+Note the first argument is the name of the class that the logging statement comes from. The second is the text you want to display.
+
+We’ve used Log.i() here which stands for an "information" level log. You have these other options as well:
+
+e(String, String) (error)
+w(String, String) (warning)
+i(String, String) (information)
+d(String, String) (debug)
+v(String, String) (verbose)
+
+When you set a log level, it will show anything from that log level and above, so the verbose log level displays the most information, while the error log level shows only the most critical logs.
+
+
+
+
+@dimen refers to dimension and it's a file where you define dimensions to use them later from in any layout file.
+
+It's located in res/values/dimens , here's what a sample of the file look like:
+
+ <resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+  </resources>
+here activity_veritcal_margin = 16 dp.
+
+and to it's to use it like this:
+
+<LinearLayout
+android:id="@+id/activity_main"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:paddingBottom="@dimen/activity_vertical_margin">
+
+
+public void printToLogs(View view) {
+
+    TextView fMItem= (TextView)findViewById(R.id.menu_item_1);
+    String menuItem1= fMItem.getText().toString();
+    Log.v("MainActivity",menuItem1);
+
+    // Find second menu item TextView and print the text to the logs
+    TextView sMItem= (TextView)findViewById(R.id.menu_item_2);
+    String menuItem2= sMItem.getText().toString();
+    Log.v("MainActivity",menuItem2);
+
+    // Find third menu item TextView and print the text to the logs
+    TextView tMItem= (TextView)findViewById(R.id.menu_item_3);
+    String menuItem3= tMItem.getText().toString();
+    Log.v("MainActivity",menuItem3);
+
+}
+
+
+package com.example.android.loggingapp;
+
+
+
+<CheckBox
+       android:id="@+id/notify_me_checkbox"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:text="@string/whippedCream"
+       android:padding="24dp"
+       android:textSize="16sp"
+       android:textAppearance="?android:textAppearanceMedium" />
+
+
+       private String createOrderSummary(int price, boolean hasWhippedCream) {
+               String priceMessage = "Name: Ashish";
+               priceMessage += "\nAdd Whipped Cream? " + hasWhippedCream;
+               priceMessage += "\nQuantity: " + quantity;
+               priceMessage += "\nTotal: "+ NumberFormat.getCurrencyInstance().format(price);;
+               priceMessage += "\nThank you";
+               return priceMessage;
+           }
+
+
+<ScrollView
+   xmlns:android="http://schemas.android.com/apk/res/android"
+   xmlns:tools="http://schemas.android.com/tools"
+   android:layout_height="match_parent"
+   android:layout_width="match_parent">
+
+
+<LinearLayout
+   android:layout_width="match_parent"
+   android:layout_height="match_parent"
+   android:layout_margin="12sp"
+   android:orientation="vertical"
+   tools:context="com.example.android.justjava.MainActivity"
+>
+
+
+
+<EditText
+   android:id="@+id/name"
+   android:layout_width="match_parent"
+   android:layout_height="wrap_content"
+   android:hint="@string/name"
+   android:inputType="text"
+/>
+
+EditText editText = (EditText) findViewById(R.id.name);
+String name = editText.getText().toString();
+
+
+Toast.makeText(context, text, duration);
+
+Toast.makeText(MainActivity.this,
+    "Your Message", Toast.LENGTH_LONG).show();
+
+
+context
+getApplicationContext() - Returns the context for all activities running in application.
+getBaseContext() - If you want to access Context from another context within application you can access.
+getContext() - Returns the context view only current running activity.
+
+Toast.LENGTH_SHORT - Toast delay 2000 ms predefined
+Toast.LENGTH_LONG - Toast delay 3500 ms predefined
+milisecond - Toast delay user defined miliseconds (eg. 4000)
+
+Toast.makeText(getApplicationContext(), "STRING MESSAGE", 5000).show();
+
+
+or make a custom one by providing custom layout file
+
+Toast myToast = new Toast(getApplicationContext());
+myToast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+myToast.setDuration(Toast.LENGTH_LONG);
+myToast.setView(myLayout);
+myToast.show();
+
+
+An Intent is an "intention" to perform an action; in other words,
+a messaging object you can use to request an action from another app component
+An Intent is basically a message to say you did or want something to happen. Depending on the intent, apps or the OS might be listening for it and will react accordingly. Think of it as a blast email to a bunch of friends, in which you tell your friend John to do something, or to friends who can do X ("intent filters"), to do X. The other folks will ignore the email, but John (or friends who can do X) will react to it.
+
+To listen for an broadcast intent (like the phone ringing, or an SMS is received), you implement a broadcast receiver, which will be passed the intent. To declare that you can handle another's app intent like "take picture", you declare an intent filter in your app's manifest file.
+
+If you want to fire off an intent to do something, like pop up the dialer, you fire off an intent saying you will.
+
+An Intent is basically a message that is passed between components (such as Activities, Services, Broadcast Receivers, and Content Providers). So, it is almost equivalent to parameters passed to API calls. The fundamental differences between API calls and invoking components via intents are:
+
+API calls are synchronous while intent-based invocations are asynchronous.
+API calls are compile-time binding while intent-based calls are run-time binding.
+Of course, Intents can be made to work exactly like API calls by using what are called explicit intents, which will be explained later. But more often than not, implicit intents are the way to go and that is what is explained here.
+
+One component that wants to invoke another has to only express its intent to do a job. And any other component that exists and has claimed that it can do such a job through intent-filters, is invoked by the Android platform to accomplish the job. This means, neither components are aware of each other's existence but can still work together to give the desired result for the end-user.
+
+This invisible connection between components is achieved through the combination of intents, intent-filters and the Android platform.
+
+This leads to huge possibilities like:
+
+Mix and match or rather plug and play of components at runtime.
+Replacing the inbuilt Android applications with custom developed applications.
+Component level reuse within and across applications.
+Service orientation to the most granular level, if I may say.
+
+Intent sendIntent = new Intent(Intent.ACTION_VIEW);
+sendIntent.setData(Uri.parse("geo:47.6, -123.3"));
+if (sendIntent.resolveActivity(getPackageManager()) != null) {
+    startActivity(sendIntent);
+}
+
+
+
+
+
+
