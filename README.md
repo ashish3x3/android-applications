@@ -21,4 +21,4 @@ This sample uses the Gradle build system. To build this project, use the
 **Snap of Court Counter App**
 
 ![Alt text](/Images/Score-App.PNG?raw=true "Court Counter")
-![Alt text](/Images/Cookies App.PNG?raw=true "Cookies")
+![Alt text](/Images/CookiesApp.PNG?raw=true "Cookies")
